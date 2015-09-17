@@ -1,0 +1,19 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+    <h2>TODOs</h2>
+
+    {% if latest_todo_list %}
+        <ul>
+        {% for todo in latest_todo_list %}
+            <li><a href="{% url 'detail' todo.id %}">{{ todo.todo_text }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p> No TODOs </p>
+    {% endif %}
+    <p>
+        <a href="{% url 'add' %}">add</a>
+    </p>
+
+{% endblock content %}

@@ -1,0 +1,6 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
+    <h2>{{todo.todo_text}}<h2>
+    <a href="{% url 'delete' todo.id %}">delete</a>
+{% endblock content %}
