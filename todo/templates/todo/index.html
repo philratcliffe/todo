@@ -12,8 +12,9 @@
     {% else %}
         <p> No TODOs </p>
     {% endif %}
-    <p>
-        <a href="{% url 'add' %}">add</a>
-    </p>
+
+    <form action="{% url 'add' %}" method="get">
+    <input type="submit" value="Add" />
+</form>
 
 {% endblock content %}
