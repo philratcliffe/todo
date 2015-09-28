@@ -1,18 +1,22 @@
+{% extends "todo/base.html" %}
+
+{% block content %}
 <h1>Add a todo</h1>
 
-    {% if form.errors %}
-        <p style="color: red;">
-            Please correct the error{{ form.errors|pluralize }} below.
-        </p>
-    {% endif %}
+{% if form.errors %}
+<p style="color: red;">
+Please correct the error{{ form.errors|pluralize }} below.
+</p>
+{% endif %}
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <div class="field">
-            {{ form.todo_text.errors }}
-            <label for="id_todo_text">ToDo:</label>
-            {{ form.todo_text }}
-        </div>
-        <input type="submit" value="Submit">
-    </form>
-</body>
+<forM action="" method="post">
+{% csrf_token %}
+<div class="field">
+{{ form.todo_text.errors }}
+<label for="id_todo_text">ToDo:</label>
+{{ form.todo_text }}
+</div>
+<input type="submit" value="Submit">
+</form>
+
+{% endblock content %}
