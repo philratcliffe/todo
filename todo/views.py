@@ -1,9 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
 from . import models
 from .forms import AddForm
 from django.views import generic
 from django.core.urlresolvers import reverse_lazy
+
 
 class IndexView(generic.ListView):
     template_name = 'todo/index.html'
@@ -13,29 +12,19 @@ class IndexView(generic.ListView):
         """Return the last fifteen todos."""
         return models.ToDo.objects.all().order_by('created_date')[:15]
 
+
 class DetailView(generic.DetailView):
     model = models.ToDo
     template_name = 'todo/detail.html'
+
 
 class DeleteView(generic.DeleteView):
     model = models.ToDo
     success_url = reverse_lazy('index')
 
-def add(request):
-    if request.method == 'POST':
-        form = AddForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/todo/')
 
-    else:
-        form = AddForm()
-
-    return render(request, 'todo/add.html', {'form': form})
-
-
-
-
-
-
-
+class CreateView(generic.CreateView):
+    template_name = 'todo/add.html'
+    model = models.ToDo
+    success_url = reverse_lazy('index')
+    form_class = AddForm
