@@ -2,7 +2,8 @@
 
 {% block content %}
 
-    <h2>{{todo.todo_text}}<h2>
+    <h2>{{todo.todo_text}}</h2>
+
     <form action="{% url 'delete' todo.id %}">
         <input type="submit" value="Delete">
     </form>
