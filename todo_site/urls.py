@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    url('^$', RedirectView.as_view(url='/todo/')),
+    url('^$', RedirectView.as_view(url='/todo/', permanent=True)),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^todo/', include('todo.urls')),
 ]
