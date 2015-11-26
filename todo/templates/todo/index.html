@@ -4,15 +4,29 @@
     <h2>TODOs</h2>
 
     {% if latest_todo_list %}
-        <ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Completed</th>
+                    <th>Task</th>
+                </tr>
+            </thead>
         {% for todo in latest_todo_list %}
-            <li><a href="{% url 'detail' todo.id %}">{{ todo.todo_text }}</a></li>
+            <tr>
+                <td>
+                    {{todo.done|yesno}}
+                </td>
+                <td>
+                    <a href="{% url 'update' todo.id %}">{{ todo.todo_text }}</a>
+                </td>
+            </tr>
         {% endfor %}
-        </ul>
+        </table>
     {% else %}
         <p> No TODOs </p>
     {% endif %}
 
+    <br />
     <form action="{% url 'add' %}" method="get">
         <input type="submit" value="Add ToDo" />
     </form>

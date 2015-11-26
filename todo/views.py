@@ -13,14 +13,17 @@ class IndexView(generic.ListView):
         return models.ToDo.objects.all().order_by('created_date')[:15]
 
 
-class DetailView(generic.DetailView):
+class UpdateView(generic.UpdateView):
     model = models.ToDo
-    template_name = 'todo/detail.html'
+    fields = ['todo_text', 'done']
+    success_url = reverse_lazy('index')
+    template_name_suffix = '_update_form'
 
 
 class DeleteView(generic.DeleteView):
     model = models.ToDo
     success_url = reverse_lazy('index')
+
 
 
 class CreateView(generic.CreateView):

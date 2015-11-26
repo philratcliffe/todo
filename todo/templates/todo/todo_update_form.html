@@ -4,7 +4,14 @@
 
     <h2>{{todo.todo_text}}</h2>
 
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update" />
+    </form>
+
+    <br />
     <form action="{% url 'delete' todo.id %}">
         <input type="submit" value="Delete">
     </form>
+
 {% endblock content %}
