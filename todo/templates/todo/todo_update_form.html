@@ -6,12 +6,16 @@
 
     <form action="" method="post">{% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Update" />
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" >Update</button>
+        </div>
     </form>
 
     <br />
     <form action="{% url 'delete' todo.id %}">
-        <input type="submit" value="Delete">
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" >Delete</button>
+        </div>
     </form>
 
 {% endblock content %}

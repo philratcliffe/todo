@@ -28,7 +28,9 @@
 
     <br />
     <form action="{% url 'add' %}" method="get">
-        <input type="submit" value="Add ToDo" />
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" >Add ToDo</button>
+        </div>
     </form>
 
 {% endblock content %}
