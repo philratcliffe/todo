@@ -5,4 +5,7 @@ class ToDo(models.Model):
     created_date = models.DateTimeField('date created', auto_now_add=True)
     done = models.BooleanField(default=False)
 
+    def __unicode__(self):
+        return self.todo_text
+
 

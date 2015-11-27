@@ -12,10 +12,6 @@
     </form>
 
     <br />
-    <form action="{% url 'delete' todo.id %}">
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary" >Delete</button>
-        </div>
-    </form>
+    <a href="{% url 'delete' todo.id %}">Delete</a>
 
 {% endblock content %}
