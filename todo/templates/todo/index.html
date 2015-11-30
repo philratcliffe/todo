@@ -7,17 +7,22 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Completed</th>
                     <th>Task</th>
+                    <th>Completed</th>
+                    <th></th>
                 </tr>
             </thead>
         {% for todo in latest_todo_list %}
             <tr>
                 <td>
+                    <a href="{% url 'update' todo.id %}">{{ todo.todo_text }}</a>
+                </td>
+                <td>
                     {{todo.done|yesno}}
                 </td>
                 <td>
-                    <a href="{% url 'update' todo.id %}">{{ todo.todo_text }}</a>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <a href="{% url 'delete' todo.id %}">Delete</a>
                 </td>
             </tr>
         {% endfor %}
