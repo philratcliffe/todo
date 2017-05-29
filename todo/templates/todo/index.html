@@ -15,7 +15,7 @@
         {% for todo in latest_todo_list %}
             <tr>
                 <td>
-                    <a href="{% url 'update' todo.id %}">{{ todo.todo_text }}</a>
+                    <a href="{% url 'update' todo.id %}">{{ todo.task_text }}</a>
                 </td>
                 <td>
                     {{todo.done|yesno}}
