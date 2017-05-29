@@ -25,9 +25,8 @@ class DeleteView(generic.DeleteView):
     success_url = reverse_lazy('index')
 
 
-
 class CreateView(generic.CreateView):
-    template_name = 'todo/add.html'
+    #template_name = 'todo/add.html'
     model = models.ToDo
     success_url = reverse_lazy('index')
     form_class = AddForm

@@ -1,7 +1,7 @@
 {% extends "todo/base.html" %}
 
 {% block content %}
-<h1>Add a todo</h1>
+<h1>Add Task</h1>
 
 {% if form.errors %}
 <p style="color: red;">
@@ -16,7 +16,6 @@ Please correct the error{{ form.errors|pluralize }} below.
         {% for field in form %}
             {% if field.errors %}
                 <div class="control-group error">
-                    <label class="control-label">{{ field.label }}</label> 
                     <div class="controls">{{ field }}
                         <span class="help-inline">
                             {% for error in  field.errors %}{{ error }}{% endfor %}
@@ -25,7 +24,6 @@ Please correct the error{{ form.errors|pluralize }} below.
                 </div>
             {% else %}
                 <div class="control-group">
-                    <label class="control-label">{{ field.label }}</label> 
                     <div class="controls">{{ field }}
                         {% if field.help_text %}
                             <p class="help-inline"><small>{{ field.help_text }}</small></p>
@@ -37,7 +35,7 @@ Please correct the error{{ form.errors|pluralize }} below.
     </fieldset>
     <br />
     <div class="form-actions">
-        <button type="submit" class="btn btn-primary" >Submit</button>
+        <button type="submit" class="btn btn-primary" >Add Task</button>
     </div>
 </form>
 

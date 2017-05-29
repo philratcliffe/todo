@@ -5,6 +5,6 @@ from . import models
 class AddForm(ModelForm):
     class Meta:
         model = models.ToDo
-        fields = ['todo_text']
+        fields = ['task_text']
 
 
