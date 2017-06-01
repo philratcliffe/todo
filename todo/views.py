@@ -15,7 +15,7 @@ class IndexView(generic.ListView):
 
 class UpdateView(generic.UpdateView):
     model = models.ToDo
-    fields = ['todo_text', 'done']
+    fields = ['task_text', 'done']
     success_url = reverse_lazy('index')
     template_name_suffix = '_update_form'
 
@@ -26,7 +26,6 @@ class DeleteView(generic.DeleteView):
 
 
 class CreateView(generic.CreateView):
-    #template_name = 'todo/add.html'
     model = models.ToDo
     success_url = reverse_lazy('index')
     form_class = AddForm
