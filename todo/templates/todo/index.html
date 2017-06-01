@@ -27,13 +27,13 @@
         {% endfor %}
         </table>
     {% else %}
-        <p> No TODOs </p>
+        <p> No Tasks </p>
     {% endif %}
 
     <br />
     <form action="{% url 'add' %}" method="get">
         <div class="form-actions">
-            <button type="submit" class="btn btn-primary" >Add ToDo</button>
+            <button type="submit" class="btn btn-primary" >Add Task</button>
         </div>
     </form>
 
