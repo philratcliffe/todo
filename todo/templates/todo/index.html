@@ -17,7 +17,9 @@
                     <a href="{% url 'update' todo.id %}">{{ todo.task_text }}</a>
                 </td>
                 <td>
-                    {{todo.done|yesno}}
+                    {% if todo.done %}
+                        &#10004;
+                    {% endif %}
                 </td>
                 <td>
                     <span class="glyphicon glyphicon-remove"></span>
